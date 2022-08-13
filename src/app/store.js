@@ -1,8 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { bouncehousesReducer } from '../features/bouncehouses/BounceHouseSlice';
+
+
+import logger from 'redux-logger';
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+    reducer: {
+        bouncehouses: bouncehousesReducer,      
+    },
+
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger])
+
 });
+
